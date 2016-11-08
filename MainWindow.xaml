@@ -12,5 +12,15 @@
                 
                 </MenuItem>
            </Menu>
-        </DockPanel>    
+        <TabControl  HorizontalAlignment="Stretch" MinHeight="100" MinWidth="150">
+            <TabItem  Header="Вкладка 1">
+                <DataGrid Name="SensorTable" AutoGenerateColumns="True" Loaded="SensorTable_Loaded" >
+
+                </DataGrid>
+
+
+            </TabItem>
+            <TabItem Header="Вкладка 2"></TabItem>
+        </TabControl>
+    </DockPanel>    
 </Window>
