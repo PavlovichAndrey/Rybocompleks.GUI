@@ -2,23 +2,25 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
-         
         <DockPanel>
             <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Background="White" BorderBrush="Black">
-                <MenuItem Header="_Menu">
-                    <Separator/>
-                    <MenuItem Header="_Exit" MouseEnter="MenuItem_MouseEnter"
-                              MouseLeave="MenuItem_MouseLeave" Click="FileExit_Click" />
+            <MenuItem Header="_Menu">
                 
-                </MenuItem>
-           </Menu>
+                <MenuItem Header="_Open" Click="MenuOpenGP_Click"/>
+                <MenuItem Header="_Run" Click="MenuRun_Click"/>
+                <MenuItem Header="_About" Click="MenuAbout_Click" />
+
+                <Separator/>
+                <MenuItem Header="_Exit" Click="FileExit_Click" />
+            </MenuItem>
+                
+        </Menu>
         <TabControl  HorizontalAlignment="Stretch" MinHeight="100" MinWidth="150">
             <TabItem  Header="Вкладка 1">
-                <DataGrid Name="SensorTable" AutoGenerateColumns="True" Loaded="SensorTable_Loaded" >
+                <DataGrid Name="SensorTable" AutoGenerateColumns="True" Loaded="SensorTable_Loaded" 
+                          AlternatingRowBackground="AliceBlue" IsReadOnly="True" SelectionMode="Extended">
 
                 </DataGrid>
-
-
             </TabItem>
             <TabItem Header="Вкладка 2"></TabItem>
         </TabControl>
