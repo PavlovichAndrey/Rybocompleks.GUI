@@ -19,7 +19,7 @@
             <TabItem Name="StartPage" Header="StartPage">
                <Border BorderBrush="Aqua">
                     <StackPanel>
-                        <Button Margin="5" HorizontalAlignment="Left" Width="200" Height="30" Click="OpenGP_Click">Создать новый план выращивания</Button>
+                        <Button Margin="5" HorizontalAlignment="Left" Width="200" Height="30" Click="CreatGP_Click">Создать новый план выращивания</Button>
                         <Label Margin="5,5,5,0" HorizontalAlignment="Left">Выбрать план выращивания:</Label>
                         <StackPanel  Margin="5,0,5,5" Orientation="Horizontal">
                             <TextBox Name="TxtBx_GPPath"  HorizontalAlignment="Left" Width="300"></TextBox>

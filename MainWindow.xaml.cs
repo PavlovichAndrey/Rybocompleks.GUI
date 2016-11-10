@@ -102,6 +102,13 @@ namespace Rybocompleks.GUI
             }
         }
 
+        private void CreatGP_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("открытие окна создания плана выращивания");
+            TabContr.Items.Add(new GPEditor());
+            
+        }
+
       
     }
 }
