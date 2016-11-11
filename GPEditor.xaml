@@ -5,10 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Header="Редактор плана выращивания">
-    <StackPanel>
-        <DataGrid Name="dataGrid" AutoGenerateColumns="True">
-            
+             Name="gpEditor"
+             Header="План выращивания">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid  Grid.Column="0" Grid.Row="0" Name="dataGrid" MinHeight="100"
+                   AutoGenerateColumns="True" CanUserSortColumns="False" 
+                   ScrollViewer.CanContentScroll="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Header="Удалить строку" Click="delSelectedGPNode"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
-    </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button   Margin="5" VerticalAlignment="Bottom" Click="openBtn_Click">Открыть</Button>
+
+            <Button   Margin="5" VerticalAlignment="Bottom" Click="saveBtn_Click">Сохранить</Button>
+            <Button   Margin="5" VerticalAlignment="Bottom" Click="closeGPEditor">Закрыть</Button>
+        </StackPanel>
+    </Grid>
 </TabItem>

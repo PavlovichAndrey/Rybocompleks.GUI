@@ -22,7 +22,7 @@ namespace Rybocompleks.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        [Serializable]
+        /*[Serializable]
         private class DataSensors
         {
             public string Name { get; set; }
@@ -33,7 +33,7 @@ namespace Rybocompleks.GUI
                 this.Value = Value;
             }
         }
-        List<DataSensors> sensors = new List<DataSensors>();
+        List<DataSensors> sensors = new List<DataSensors>();*/
         public MainWindow()
         {
             InitializeComponent();
@@ -67,8 +67,14 @@ namespace Rybocompleks.GUI
         {
             if(TxtBx_GPPath.Text!="")
             {
-                if(System.IO.File.Exists(TxtBx_GPPath.Text))
-                    MessageBox.Show("Запуск процесса выращивания рыбы по плану из файла:\n "+TxtBx_GPPath.Text);
+                if (System.IO.File.Exists(TxtBx_GPPath.Text))
+                {
+                    MessageBox.Show("Запуск процесса выращивания рыбы по плану из файла:\n " + TxtBx_GPPath.Text);                    
+                    TabContr.Items.Add(new TabItem() { Header = "Датчки таблица" });
+                    TabContr.Items.Add(new TabItem() { Header = "Датчки рисунок" });
+                    TabContr.Items.Add(new GPEditor(TxtBx_GPPath.Text));
+                    TabContr.Items.Remove(StartPage);
+                }
                 else
                     MessageBox.Show("Файл не найден", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
@@ -89,7 +95,6 @@ namespace Rybocompleks.GUI
             dlg.FileName = ""; // Default file name
             dlg.DefaultExt = ".xml"; // Default file extension
             dlg.Filter = "xml documents (.xml)|*.xml"; // Filter files by extension
-
             // Show open file dialog box
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -104,9 +109,10 @@ namespace Rybocompleks.GUI
 
         private void CreatGP_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("открытие окна создания плана выращивания");
-            TabContr.Items.Add(new GPEditor());
-            
+          //  MessageBox.Show("открытие окна создания плана выращивания");          
+            GPEditor gpe = new GPEditor();
+            TabContr.Items.Add(gpe);
+            TabContr.SelectedItem = gpe;
         }
 
       
